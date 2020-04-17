@@ -17,6 +17,10 @@ include $(BUILD_SHARED_LIBRARY)
 include $(CLEAR_VARS)
 LOCAL_MODULE := bsdiff
 LOCAL_SHARED_LIBRARIES := bzip2
-LOCAL_SRC_FILES := ${LOCAL_PATH}/libbsdiff.c \
-                   ${LOCAL_PATH}/libbspatch.c
+ROOT_PATH := ${LOCAL_PATH}/../../../../../src/
+LOCAL_EXPORT_C_INCLUDES := $(ROOT_PATH)
+LOCAL_SRC_FILES := ${ROOT_PATH}/bsdiff.h \
+                   ${ROOT_PATH}/bsdiff.c \
+                   ${ROOT_PATH}/bspatch.h \
+                   ${ROOT_PATH}/bspatch.c
 include $(BUILD_SHARED_LIBRARY)
