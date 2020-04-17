@@ -1,2 +1,3 @@
 rootProject.name='BSDiffAndroid'
 include ':app'
+include ':bsdiff'
