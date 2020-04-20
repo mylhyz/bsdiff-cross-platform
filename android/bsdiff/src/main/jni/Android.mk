@@ -24,3 +24,9 @@ LOCAL_SRC_FILES := ${ROOT_PATH}/bsdiff.h \
                    ${ROOT_PATH}/bspatch.h \
                    ${ROOT_PATH}/bspatch.c
 include $(BUILD_SHARED_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := bsdiff_jni
+LOCAL_SHARED_LIBRARIES := bsdiff bzip2
+LOCAL_SRC_FILES := ${LOCAL_PATH}/bsdiff_jni.cc
+include $(BUILD_SHARED_LIBRARY)
