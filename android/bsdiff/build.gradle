@@ -12,6 +12,9 @@ android {
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
+
+        buildConfigField("String", "BZIP2_VERSION", "\"${BZIP2_VERSION}\"")
+        buildConfigField("String", "BSDIFF_VERSION", "\"${BSDIFF_VERSION}\"")
     }
 
     buildTypes {
@@ -36,3 +39,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
+
+apply from: "${projectDir}/release.gradle"

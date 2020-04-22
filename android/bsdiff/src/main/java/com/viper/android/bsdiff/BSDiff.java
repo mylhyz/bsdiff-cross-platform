@@ -7,6 +7,8 @@ import android.util.Log;
  * 处理bsdiff
  */
 public class BSDiff {
+    private static final String TAG = "BSDiff";
+
     static {
         System.loadLibrary("bzip2");
         System.loadLibrary("bsdiff");
@@ -15,12 +17,12 @@ public class BSDiff {
 
     public static void diff(String oldFilePath, String newFilePath, String patchFilePath) {
         int result = nativeDiff(oldFilePath, newFilePath, patchFilePath);
-        Log.i("VIPER", "BSDiff_diff result=" + result);
+        Log.i(TAG, "BSDiff_diff result=" + result);
     }
 
     public static void patch(String oldFilePath, String newFilePath, String patchFilePath) {
         int result = nativePatch(oldFilePath, newFilePath, patchFilePath);
-        Log.i("VIPER", "BSDiff_patch result=" + result);
+        Log.i(TAG, "BSDiff_patch result=" + result);
     }
 
     private static native int nativeDiff(String oldFilePath, String newFilePath, String patchFilePath);
