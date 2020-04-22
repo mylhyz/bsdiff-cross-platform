@@ -15,14 +15,16 @@ public class BSDiff {
         System.loadLibrary("bsdiff_jni");
     }
 
-    public static void diff(String oldFilePath, String newFilePath, String patchFilePath) {
+    public static int diff(String oldFilePath, String newFilePath, String patchFilePath) {
         int result = nativeDiff(oldFilePath, newFilePath, patchFilePath);
         Log.i(TAG, "BSDiff_diff result=" + result);
+        return result;
     }
 
-    public static void patch(String oldFilePath, String newFilePath, String patchFilePath) {
+    public static int patch(String oldFilePath, String newFilePath, String patchFilePath) {
         int result = nativePatch(oldFilePath, newFilePath, patchFilePath);
         Log.i(TAG, "BSDiff_patch result=" + result);
+        return result;
     }
 
     private static native int nativeDiff(String oldFilePath, String newFilePath, String patchFilePath);
