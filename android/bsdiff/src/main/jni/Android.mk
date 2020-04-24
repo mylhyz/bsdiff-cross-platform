@@ -16,13 +16,15 @@ include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := bsdiff
+LOCAL_LDLIBS := -llog
 LOCAL_SHARED_LIBRARIES := bzip2
 ROOT_PATH := ${LOCAL_PATH}/../../../../../src/
 LOCAL_EXPORT_C_INCLUDES := $(ROOT_PATH)
-LOCAL_SRC_FILES := ${ROOT_PATH}/bsdiff.h \
-                   ${ROOT_PATH}/bsdiff.c \
+LOCAL_SRC_FILES := ${ROOT_PATH}/android_jni_compat_err.h \
+                   ${ROOT_PATH}/bsdiff.h \
+                   ${ROOT_PATH}/bsdiff_jni_compat.c \
                    ${ROOT_PATH}/bspatch.h \
-                   ${ROOT_PATH}/bspatch.c
+                   ${ROOT_PATH}/bspatch_jni_compat.c
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
